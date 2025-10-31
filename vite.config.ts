@@ -19,4 +19,19 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/setupTests.tsx',
+    coverage: {
+      provider: 'v8',
+      exclude: ['node_modules', 'src/main.tsx', 'src/routeTree.gen.ts'],
+      reporter: ['text', 'json', 'html'],
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
+    },
+  },
 })
